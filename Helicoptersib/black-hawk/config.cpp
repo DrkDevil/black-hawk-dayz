@@ -5,7 +5,7 @@ class CfgPatches
 		units[]={};
 		weapons[]={};
 		requiredVersion=0.1;
-		requiredAddons[]={"HelicopterModScriptsSIB"};
+		requiredAddons[]={"HelicopterSIB\black-hawkSIB"};
 	};
 };
 class CfgMods
@@ -57,6 +57,82 @@ class CfgMods
 				};
 			};
 		};
+	};
+};
+class CfgSoundShaders
+{
+	class Heli_crash_SoundShaders
+	{
+		samples[] = {{"HelicopterSIB\black-hawk\Sound\crash",1}};
+		range = 250;
+		volume = 1.0;
+	};
+	class Heli_warning_SoundShaders
+	{
+		samples[] = {{"HelicopterSIB\black-hawk\Sound\warning",1}};
+		range = 250;
+		volume = 1.0;
+	};
+	class Heli_engine_SoundShaders
+	{
+		samples[] = {{"HelicopterSIB\black-hawk\Sound\engine",1}};
+		range = 700;
+		volume = 1.5;
+	};
+	class Heli_rotor_SoundShaders
+	{
+		samples[] = {{"HelicopterSIB\black-hawk\Sound\rotor",1}};
+		range = 700;
+		volume = 1.5;
+	};
+	class Heli_start_SoundShaders
+	{
+		samples[] = {{"HelicopterSIB\black-hawk\Sound\start",1}};
+		range = 500;
+		volume = 1.5;
+	};
+	class Heli_stop_SoundShaders
+	{
+		samples[] = {{"HelicopterSIB\black-hawk\Sound\stop",1}};
+		range = 500;
+		volume = 1.5;
+	};
+};
+class CfgSoundSets
+{
+	class Heli_base_SoundSet
+	{
+		sound3DProcessingType = "character3DProcessingType";
+		volumeCurve = "characterAttenuationCurve";
+		spatial = 1;
+		doppler = 0;
+		loop = 0;
+	};
+	class HelicopterCrash_SoundSets: Heli_base_SoundSet
+	{
+		soundShaders[] = {"Heli_crash_SoundShaders"};
+	};
+	class HelicopterWarning_SoundSets: Heli_base_SoundSet
+	{
+		soundShaders[] = {"Heli_warning_SoundShaders"};
+	};
+	class HelicopterStart_SoundSets: Heli_base_SoundSet
+	{
+		soundShaders[] = {"Heli_start_SoundShaders"};
+	};
+	class HelicopterStop_SoundSets: Heli_base_SoundSet
+	{
+		soundShaders[] = {"Heli_stop_SoundShaders"};
+	};
+	class HelicopterEngine_SoundSets: Heli_base_SoundSet
+	{
+		soundShaders[] = {"Heli_engine_SoundShaders"};
+		loop = 1;
+	};
+	class HelicopterRotor_SoundSets: Heli_base_SoundSet
+	{
+		soundShaders[] = {"Heli_rotor_SoundShaders"};
+		loop = 1;
 	};
 };
 
